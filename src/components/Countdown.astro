@@ -1,0 +1,46 @@
+---
+import Section from './Section.astro';
+import { weddingDateISO } from '../data/wedding';
+---
+
+<Section id="countdown" background="deep">
+	<div class="text-center">
+		<p class="font-label text-xs tracking-[0.3em] text-white/70 uppercase">Cuenta regresiva</p>
+
+		<div
+			id="countdown-root"
+			class="mt-6 flex flex-wrap justify-center gap-6 sm:gap-10"
+			data-wedding-date={weddingDateISO}
+		>
+			<!--
+				Solo el bloque de días queda expuesto a lectores de pantalla (aria-live="polite"):
+				cambia como máximo una vez al día. Horas/minutos/segundos se marcan aria-hidden
+				para no renarrar cada segundo, aunque sigan actualizándose visualmente.
+			-->
+			<div class="flex flex-col items-center">
+				<span class="font-label text-4xl font-light text-white sm:text-6xl" data-unit="days" aria-live="polite">
+					--
+				</span>
+				<span class="mt-2 font-label text-xs tracking-[0.2em] text-white/70 uppercase">Días</span>
+			</div>
+			<div class="flex flex-col items-center" aria-hidden="true">
+				<span class="font-label text-4xl font-light text-white sm:text-6xl" data-unit="hours">--</span>
+				<span class="mt-2 font-label text-xs tracking-[0.2em] text-white/70 uppercase">Horas</span>
+			</div>
+			<div class="flex flex-col items-center" aria-hidden="true">
+				<span class="font-label text-4xl font-light text-white sm:text-6xl" data-unit="minutes">--</span>
+				<span class="mt-2 font-label text-xs tracking-[0.2em] text-white/70 uppercase">Minutos</span>
+			</div>
+			<div class="flex flex-col items-center" aria-hidden="true">
+				<span class="font-label text-4xl font-light text-white sm:text-6xl" data-unit="seconds">--</span>
+				<span class="mt-2 font-label text-xs tracking-[0.2em] text-white/70 uppercase">Segundos</span>
+			</div>
+		</div>
+
+		<p id="countdown-done" class="mt-6 font-serif text-2xl text-white" hidden>¡Hoy nos casamos!</p>
+	</div>
+</Section>
+
+<script>
+	import '../scripts/countdown.ts';
+</script>
