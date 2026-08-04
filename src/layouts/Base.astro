@@ -8,6 +8,11 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+
+// og:image debe ser una URL absoluta según la spec de Open Graph; Astro.site
+// viene de "site" en astro.config.mjs (PENDIENTE: actualizar ahí con el dominio final).
+const ogImageUrl = new URL('/og-image.png', Astro.site ?? Astro.url.origin);
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
 ---
 
 <html lang="es">
@@ -16,6 +21,22 @@ const { title, description } = Astro.props;
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>{title}</title>
 		{description && <meta name="description" content={description} />}
+		<link rel="canonical" href={canonicalUrl} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="es_ES" />
+		<meta property="og:title" content={title} />
+		{description && <meta property="og:description" content={description} />}
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:image" content={ogImageUrl} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		{description && <meta name="twitter:description" content={description} />}
+		<meta name="twitter:image" content={ogImageUrl} />
 
 		<Font cssVariable="--astro-font-serif" preload />
 		<Font cssVariable="--astro-font-script" preload />
