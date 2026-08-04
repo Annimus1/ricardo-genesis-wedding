@@ -1,0 +1,16 @@
+---
+import { couple, weddingDateDisplay } from '../data/wedding';
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{couple.groomFirstName} & {couple.brideFirstName} · {weddingDateDisplay.day} {weddingDateDisplay.month} {weddingDateDisplay.year}</title>
+	</head>
+	<body>
+		<h1>{couple.groomFirstName} &amp; {couple.brideFirstName}</h1>
+		<p>{weddingDateDisplay.weekday} {weddingDateDisplay.day} de {weddingDateDisplay.month} de {weddingDateDisplay.year} · {weddingDateDisplay.time}</p>
+		<p><!-- Scaffold temporal: feature/design-system y siguientes reemplazarán esta página --></p>
+	</body>
+</html>
