@@ -1,0 +1,36 @@
+---
+import { Font } from 'astro:assets';
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{title}</title>
+		{description && <meta name="description" content={description} />}
+
+		<Font cssVariable="--astro-font-serif" preload />
+		<Font cssVariable="--astro-font-script" preload />
+		<Font cssVariable="--astro-font-label" preload />
+
+		<script is:inline>
+			// Síncrono y antes del primer paint: evita el flash de contenido
+			// visible -> oculto que produciría añadir esta clase después.
+			document.documentElement.classList.add('js-reveal-enabled');
+		</script>
+	</head>
+	<body>
+		<slot />
+		<script>
+			import '../scripts/reveal.ts';
+		</script>
+	</body>
+</html>
