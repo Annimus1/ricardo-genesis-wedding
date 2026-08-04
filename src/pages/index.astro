@@ -7,6 +7,9 @@ import FechaLugar from '../components/secciones/FechaLugar.astro';
 import Programa from '../components/secciones/Programa.astro';
 import DressCode from '../components/secciones/DressCode.astro';
 import SoloAdultos from '../components/secciones/SoloAdultos.astro';
+import Aportes from '../components/secciones/Aportes.astro';
+import RSVP from '../components/secciones/RSVP.astro';
+import Footer from '../components/secciones/Footer.astro';
 import { couple, weddingDateDisplay } from '../data/wedding';
 
 const title = `${couple.groomFirstName} & ${couple.brideFirstName} · ${weddingDateDisplay.day} ${weddingDateDisplay.month} ${weddingDateDisplay.year}`;
@@ -20,5 +23,7 @@ const title = `${couple.groomFirstName} & ${couple.brideFirstName} · ${weddingD
 	<Programa />
 	<DressCode />
 	<SoloAdultos />
-	<!-- Las secciones 8-10 llegan en las siguientes features. -->
+	<Aportes />
+	<RSVP />
+	<Footer />
 </Base>
