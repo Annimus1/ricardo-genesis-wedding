@@ -1,16 +1,27 @@
 ---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import Ornament from '../components/Ornament.astro';
+import PhotoSlot from '../components/PhotoSlot.astro';
 import { couple, weddingDateDisplay } from '../data/wedding';
+
+const title = `${couple.groomFirstName} & ${couple.brideFirstName} · ${weddingDateDisplay.day} ${weddingDateDisplay.month} ${weddingDateDisplay.year}`;
 ---
 
-<html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>{couple.groomFirstName} & {couple.brideFirstName} · {weddingDateDisplay.day} {weddingDateDisplay.month} {weddingDateDisplay.year}</title>
-	</head>
-	<body>
-		<h1>{couple.groomFirstName} &amp; {couple.brideFirstName}</h1>
-		<p>{weddingDateDisplay.weekday} {weddingDateDisplay.day} de {weddingDateDisplay.month} de {weddingDateDisplay.year} · {weddingDateDisplay.time}</p>
-		<p><!-- Scaffold temporal: feature/design-system y siguientes reemplazarán esta página --></p>
-	</body>
-</html>
+<Base title={title}>
+	<!-- Scaffold temporal de verificación del sistema de diseño; las secciones reales llegan en las siguientes features. -->
+	<Section reveal={false}>
+		<h1 class="text-center font-script text-5xl text-dusty">
+			{couple.groomFirstName} &amp; {couple.brideFirstName}
+		</h1>
+		<p class="mt-4 text-center font-label text-sm tracking-[0.2em] text-deep uppercase">
+			{weddingDateDisplay.weekday} {weddingDateDisplay.day} de {weddingDateDisplay.month} de {weddingDateDisplay.year}
+		</p>
+	</Section>
+
+	<Section background="sky">
+		<Ornament class="mb-8" />
+		<PhotoSlot alt="Ricardo y Genesis" ratio="landscape" />
+		<Ornament class="mt-8" />
+	</Section>
+</Base>

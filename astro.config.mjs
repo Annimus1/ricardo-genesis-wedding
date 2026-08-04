@@ -11,7 +11,9 @@ export default defineConfig({
     {
       provider: fontProviders.google(),
       name: 'Cormorant Garamond',
-      cssVariable: '--font-serif',
+      // Prefijo `astro-` para no colisionar con el token `--font-serif` que
+      // Tailwind v4 genera desde @theme en global.css (ese token referencia a este).
+      cssVariable: '--astro-font-serif',
       weights: [300, 400, 500, 600],
       styles: ['normal', 'italic'],
       subsets: ['latin'],
@@ -20,7 +22,7 @@ export default defineConfig({
     {
       provider: fontProviders.google(),
       name: 'Great Vibes',
-      cssVariable: '--font-script',
+      cssVariable: '--astro-font-script',
       weights: [400],
       styles: ['normal'],
       subsets: ['latin'],
@@ -29,7 +31,7 @@ export default defineConfig({
     {
       provider: fontProviders.google(),
       name: 'Jost',
-      cssVariable: '--font-sans',
+      cssVariable: '--astro-font-label',
       weights: [300, 400, 500],
       styles: ['normal'],
       subsets: ['latin'],
