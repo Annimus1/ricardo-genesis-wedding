@@ -13,9 +13,10 @@ import Footer from '../components/secciones/Footer.astro';
 import { couple, weddingDateDisplay } from '../data/wedding';
 
 const title = `${couple.groomFirstName} & ${couple.brideFirstName} · ${weddingDateDisplay.day} ${weddingDateDisplay.month} ${weddingDateDisplay.year}`;
+const description = `Acompáñanos a celebrar la boda de ${couple.groom} y ${couple.bride} el ${weddingDateDisplay.day} de ${weddingDateDisplay.month} de ${weddingDateDisplay.year}.`;
 ---
 
-<Base title={title}>
+<Base title={title} description={description}>
 	<Hero />
 	<InvitacionFormal />
 	<Countdown />
