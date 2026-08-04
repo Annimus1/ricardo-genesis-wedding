@@ -26,6 +26,9 @@ export const parents = {
  */
 export const weddingDateISO = '2026-11-28T17:00:00-05:00';
 
+/** Duración estimada del evento, usada para el DTEND del .ics y el enlace de Google Calendar. */
+export const eventDurationHours = 6;
+
 export const weddingDateDisplay = {
   weekday: 'Sábado',
   day: '28',

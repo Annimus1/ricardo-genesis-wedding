@@ -1,7 +1,7 @@
 ---
 interface Props {
 	id?: string;
-	background?: 'ivory' | 'sky' | 'mist' | 'white';
+	background?: 'ivory' | 'sky' | 'mist' | 'white' | 'deep';
 	/** Desactivar en secciones que deben estar visibles de inmediato, como el hero. */
 	reveal?: boolean;
 	class?: string;
@@ -14,6 +14,7 @@ const bgClass = {
 	sky: 'bg-sky',
 	mist: 'bg-mist',
 	white: 'bg-white',
+	deep: 'bg-deep',
 }[background];
 ---
 

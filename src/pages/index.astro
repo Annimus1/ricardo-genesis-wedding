@@ -2,6 +2,8 @@
 import Base from '../layouts/Base.astro';
 import Hero from '../components/secciones/Hero.astro';
 import InvitacionFormal from '../components/secciones/InvitacionFormal.astro';
+import Countdown from '../components/Countdown.astro';
+import FechaLugar from '../components/secciones/FechaLugar.astro';
 import { couple, weddingDateDisplay } from '../data/wedding';
 
 const title = `${couple.groomFirstName} & ${couple.brideFirstName} · ${weddingDateDisplay.day} ${weddingDateDisplay.month} ${weddingDateDisplay.year}`;
@@ -10,5 +12,7 @@ const title = `${couple.groomFirstName} & ${couple.brideFirstName} · ${weddingD
 <Base title={title}>
 	<Hero />
 	<InvitacionFormal />
-	<!-- Las secciones 3-10 llegan en las siguientes features. -->
+	<Countdown />
+	<FechaLugar />
+	<!-- Las secciones 5-10 llegan en las siguientes features. -->
 </Base>
