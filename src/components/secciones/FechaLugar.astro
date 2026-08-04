@@ -1,0 +1,58 @@
+---
+import Section from '../Section.astro';
+import Ornament from '../Ornament.astro';
+import LinkButton from '../LinkButton.astro';
+import { couple, weddingDateISO, weddingDateDisplay, venue, eventDurationHours } from '../../data/wedding';
+import { buildGoogleCalendarUrl, buildIcsDataUri } from '../../lib/calendar';
+
+const start = new Date(weddingDateISO);
+const end = new Date(start.getTime() + eventDurationHours * 60 * 60 * 1000);
+
+const eventTitle = `Boda de ${couple.groomFirstName} y ${couple.brideFirstName}`;
+const eventDescription = `Acompáñanos a celebrar la boda de ${couple.groom} y ${couple.bride}.`;
+const location = venue.addressLine === 'PENDIENTE' ? venue.name : `${venue.name}, ${venue.addressLine}`;
+
+const calendarEvent = { title: eventTitle, description: eventDescription, location, start, end };
+const googleCalendarUrl = buildGoogleCalendarUrl(calendarEvent);
+const icsHref = buildIcsDataUri(calendarEvent, `boda-${couple.groomFirstName}-${couple.brideFirstName}-${start.getTime()}@ricardo-genesis-wedding`);
+const icsFilename = `Boda-${couple.groomFirstName}-${couple.brideFirstName}.ics`;
+
+const hasMapsUrl = venue.mapsUrl !== 'PENDIENTE';
+---
+
+<Section id="fecha-lugar" background="white">
+	<div class="grid gap-14 sm:grid-cols-2">
+		<div class="text-center sm:text-left">
+			<p class="font-label text-xs tracking-[0.3em] text-deep uppercase">Fecha</p>
+			<p class="mt-4 font-serif text-2xl text-ink">{weddingDateDisplay.weekday}</p>
+			<p class="font-serif text-4xl text-dusty sm:text-5xl">
+				{weddingDateDisplay.day} de {weddingDateDisplay.month}
+			</p>
+			<p class="font-serif text-xl text-ink">{weddingDateDisplay.year}</p>
+			<Ornament class="my-6 sm:justify-start" />
+			<p class="font-label text-sm tracking-[0.2em] text-deep uppercase">
+				{weddingDateDisplay.time} {weddingDateDisplay.timezone}
+			</p>
+		</div>
+
+		<div class="text-center sm:text-left">
+			<p class="font-label text-xs tracking-[0.3em] text-deep uppercase">Lugar</p>
+			<p class="mt-4 font-serif text-2xl text-ink">{venue.name}</p>
+			<p class="mt-2 font-label text-sm text-deep">{venue.addressLine}</p>
+
+			<div class="mt-8 flex flex-col items-center gap-3 sm:items-start">
+				{
+					hasMapsUrl && (
+						<LinkButton href={venue.mapsUrl} external class="w-full sm:w-auto">
+							Cómo llegar
+						</LinkButton>
+					)
+				}
+				<div class="flex flex-col gap-3 sm:flex-row">
+					<LinkButton href={googleCalendarUrl} external>Google Calendar</LinkButton>
+					<LinkButton href={icsHref} download={icsFilename}>Añadir al calendario</LinkButton>
+				</div>
+			</div>
+		</div>
+	</div>
+</Section>

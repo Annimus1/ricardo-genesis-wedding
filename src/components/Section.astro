@@ -1,0 +1,29 @@
+---
+interface Props {
+	id?: string;
+	background?: 'ivory' | 'sky' | 'mist' | 'white' | 'deep';
+	/** Desactivar en secciones que deben estar visibles de inmediato, como el hero. */
+	reveal?: boolean;
+	class?: string;
+}
+
+const { id, background = 'ivory', reveal = true, class: className } = Astro.props;
+
+const bgClass = {
+	ivory: 'bg-ivory',
+	sky: 'bg-sky',
+	mist: 'bg-mist',
+	white: 'bg-white',
+	deep: 'bg-deep',
+}[background];
+---
+
+<section
+	id={id}
+	class:list={[bgClass, 'px-6 py-20 sm:py-28', className]}
+	data-reveal={reveal ? '' : undefined}
+>
+	<div class="mx-auto max-w-3xl">
+		<slot />
+	</div>
+</section>
