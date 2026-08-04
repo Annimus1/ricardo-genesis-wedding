@@ -12,6 +12,12 @@ export const couple = {
   hashtag: '#RicardoYGenesis2026',
 };
 
+/** Opcional: dejar los arreglos vacíos si no se desea mostrar a los padres en la invitación. */
+export const parents = {
+  groom: [] as string[], // ej. ['Juan Márquez', 'María Pérez de Márquez']
+  bride: [] as string[],
+};
+
 /**
  * Offset explícito -05:00 (EST), no el texto "EST": el 28 de noviembre de 2026
  * cae después del fin del horario de verano en EE. UU., por lo que EST = UTC-5

@@ -1,0 +1,45 @@
+---
+import Section from '../Section.astro';
+import Ornament from '../Ornament.astro';
+import { parents } from '../../data/wedding';
+
+const showGroomParents = parents.groom.length > 0;
+const showBrideParents = parents.bride.length > 0;
+const showParents = showGroomParents || showBrideParents;
+---
+
+<Section id="invitacion">
+	<Ornament class="mb-10" />
+
+	<div class="mx-auto max-w-[60ch] text-center">
+		<p class="font-serif text-xl leading-relaxed text-ink italic sm:text-2xl">
+			Con la bendición de Dios y la compañía de quienes amamos, tenemos el honor de invitarte a
+			celebrar nuestra unión en matrimonio.
+		</p>
+
+		{
+			showParents && (
+				<div class="mt-10 grid gap-8 font-label text-xs tracking-[0.15em] text-deep uppercase sm:grid-cols-2">
+					{showGroomParents && (
+						<div>
+							<p class="mb-2 text-champagne">Padres del novio</p>
+							{parents.groom.map((name) => (
+								<p>{name}</p>
+							))}
+						</div>
+					)}
+					{showBrideParents && (
+						<div>
+							<p class="mb-2 text-champagne">Padres de la novia</p>
+							{parents.bride.map((name) => (
+								<p>{name}</p>
+							))}
+						</div>
+					)}
+				</div>
+			)
+		}
+	</div>
+
+	<Ornament class="mt-10" />
+</Section>
