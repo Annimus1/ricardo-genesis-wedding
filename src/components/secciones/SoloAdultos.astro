@@ -1,0 +1,13 @@
+---
+import Section from '../Section.astro';
+import Ornament from '../Ornament.astro';
+import { adultsOnlyNote } from '../../data/wedding';
+---
+
+<Section id="solo-adultos" background="ivory">
+	<Ornament class="mb-8" />
+	<p class="mx-auto max-w-[50ch] text-center font-serif text-lg text-ink italic sm:text-xl">
+		{adultsOnlyNote}
+	</p>
+	<Ornament class="mt-8" />
+</Section>
