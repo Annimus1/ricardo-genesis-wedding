@@ -39,10 +39,10 @@ export const weddingDateDisplay = {
 };
 
 export const venue = {
-  name: 'PENDIENTE', // ej. "Hacienda Los Almendros"
-  addressLine: 'PENDIENTE', // ej. "Calle Principal 123, Ciudad"
-  city: 'PENDIENTE',
-  mapsUrl: 'PENDIENTE', // URL completa de Google Maps al lugar
+  name: 'Hotel Eurobuilding', // ej. "Hacienda Los Almendros"
+  addressLine: 'Calle Suiza, Ave Piedemonte', // ej. "Calle Principal 123, Ciudad"
+  city: 'Barinas',
+  mapsUrl: 'https://maps.app.goo.gl/uRRo2SgqxuVz5tne8', // URL completa de Google Maps al lugar
 };
 
 export const dressCode = {
@@ -96,7 +96,7 @@ export const bankAccounts: BankAccount[] = [
 
 export const rsvp = {
   deadlineDisplay: 'PENDIENTE', // ej. "15 de octubre de 2026"
-  whatsappPhone: 'PENDIENTE', // formato internacional sin signos, ej. "584121234567"
+  whatsappPhone: '584245937048', // formato internacional sin signos, ej. "584121234567"
   message:
     'Hola! Confirmo mi asistencia a la boda de Ricardo y Genesis. Somos [nombre / número de personas]: ',
 };

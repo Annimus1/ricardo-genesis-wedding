@@ -8,38 +8,52 @@ const showBrideParents = parents.bride.length > 0;
 const showParents = showGroomParents || showBrideParents;
 ---
 
-<Section id="invitacion">
-	<Ornament class="mb-10" />
+<Section id="invitacion" class="relative overflow-hidden py-16">
+    <!-- IMAGEN DE FONDO -->
+    <div 
+        class="absolute inset-0 bg-cover bg-center z-0" 
+        style="background-image: url('https://plus.unsplash.com/premium_photo-1663076211121-36754a46de8d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');"
+    ></div>
 
-	<div class="mx-auto max-w-[60ch] text-center">
-		<p class="font-serif text-xl leading-relaxed text-ink italic sm:text-2xl">
-			Con la bendición de Dios y la compañía de quienes amamos, tenemos el honor de invitarte a
-			celebrar nuestra unión en matrimonio.
-		</p>
+    <!-- CAPA OSCURA / TRANSLÚCIDA (Overlay): 
+         Esto oscurece la foto de fondo para que el texto resalte. 
+         Puedes cambiar 'bg-black/40' por 'bg-white/70' si prefieres un fondo claro. -->
+    <div class="absolute inset-0 bg-black/45 z-10"></div>
 
-		{
-			showParents && (
-				<div class="mt-10 grid gap-8 font-label text-xs tracking-[0.15em] text-deep uppercase sm:grid-cols-2">
-					{showGroomParents && (
-						<div>
-							<p class="mb-2 text-champagne">Padres del novio</p>
-							{parents.groom.map((name) => (
-								<p>{name}</p>
-							))}
-						</div>
-					)}
-					{showBrideParents && (
-						<div>
-							<p class="mb-2 text-champagne">Padres de la novia</p>
-							{parents.bride.map((name) => (
-								<p>{name}</p>
-							))}
-						</div>
-					)}
-				</div>
-			)
-		}
-	</div>
+    <!-- CONTENIDO (Texto y ornamentos por encima de todo) -->
+    <div class="relative z-20 text-white">
+        <Ornament class="mb-10 brightness-0 invert" />
 
-	<Ornament class="mt-10" />
+        <div class="mx-auto max-w-[60ch] text-center px-6 py-10 sm:px-10 sm:py-16">
+            <p class="font-serif text-xl leading-relaxed italic sm:text-2xl text-white drop-shadow-md">
+                Con la bendición de Dios y la compañía de quienes amamos, tenemos el honor de invitarte a
+                celebrar nuestra unión en matrimonio.
+            </p>
+
+            {
+                showParents && (
+                    <div class="mt-10 grid gap-8 font-label text-xs tracking-[0.15em] uppercase sm:grid-cols-2 text-white">
+                        {showGroomParents && (
+                            <div>
+                                <p class="mb-2 text-champagne font-semibold">Padres del novio</p>
+                                {parents.groom.map((name) => (
+                                    <p class="drop-shadow">{name}</p>
+                                ))}
+                            </div>
+                        )}
+                        {showBrideParents && (
+                            <div>
+                                <p class="mb-2 text-champagne font-semibold">Padres de la novia</p>
+                                {parents.bride.map((name) => (
+                                    <p class="drop-shadow">{name}</p>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                )
+            }
+        </div>
+
+        <Ornament class="mt-10 brightness-0 invert" />
+    </div>
 </Section>
