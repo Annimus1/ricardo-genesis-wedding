@@ -10,6 +10,7 @@ import SoloAdultos from '../components/secciones/SoloAdultos.astro';
 import Aportes from '../components/secciones/Aportes.astro';
 import RSVP from '../components/secciones/RSVP.astro';
 import Footer from '../components/secciones/Footer.astro';
+import FloatingRsvp from '../components/FloatingRsvp.astro';
 import { couple, weddingDateDisplay } from '../data/wedding';
 
 const title = `${couple.groomFirstName} & ${couple.brideFirstName} · ${weddingDateDisplay.day} ${weddingDateDisplay.month} ${weddingDateDisplay.year}`;
@@ -27,4 +28,5 @@ const description = `Acompáñanos a celebrar la boda de ${couple.groom} y ${cou
 	<Aportes />
 	<RSVP />
 	<Footer />
+	<FloatingRsvp />
 </Base>

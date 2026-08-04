@@ -3,7 +3,7 @@ import PhotoSlot from '../PhotoSlot.astro';
 import { couple } from '../../data/wedding';
 ---
 
-<section class="relative flex h-[100svh] items-center justify-center overflow-hidden">
+<section id="hero" class="relative flex h-[100svh] items-center justify-center overflow-hidden">
 	<div class="absolute inset-0">
 		<PhotoSlot alt={`${couple.groom} y ${couple.bride}`} ratio="cover" priority class="h-full w-full" />
 	</div>
