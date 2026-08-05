@@ -8,7 +8,7 @@ const showBrideParents = parents.bride.length > 0;
 const showParents = showGroomParents || showBrideParents;
 ---
 
-<Section id="invitacion" class="relative overflow-hidden py-16">
+<Section id="invitacion" class="relative overflow-hidden py-16 min-h-screen">
     <!-- IMAGEN DE FONDO -->
     <div 
         class="absolute inset-0 bg-cover bg-center z-0" 
@@ -24,8 +24,8 @@ const showParents = showGroomParents || showBrideParents;
     <div class="relative z-20 text-white">
         <Ornament class="mb-10 brightness-0 invert" />
 
-        <div class="mx-auto max-w-[60ch] text-center px-6 py-10 sm:px-10 sm:py-16">
-            <p class="font-serif text-xl leading-relaxed italic sm:text-2xl text-white drop-shadow-md">
+        <div class="mx-auto max-w-2xl text-center px-6 py-10 sm:px-10 sm:py-16">
+            <p class="font-serif text-2xl md:text-5xl leading-relaxed italic text-white drop-shadow-md">
                 Con la bendición de Dios y la compañía de quienes amamos, tenemos el honor de invitarte a
                 celebrar nuestra unión en matrimonio.
             </p>
@@ -35,17 +35,17 @@ const showParents = showGroomParents || showBrideParents;
                     <div class="mt-10 grid gap-8 font-label text-xs tracking-[0.15em] uppercase sm:grid-cols-2 text-white">
                         {showGroomParents && (
                             <div>
-                                <p class="mb-2 text-champagne font-semibold">Padres del novio</p>
+                                <p class="mb-2 text-champagne font-semibold text-lg md:text-2xl">Padres del novio</p>
                                 {parents.groom.map((name) => (
-                                    <p class="drop-shadow">{name}</p>
+                                    <p class="drop-shadow text-md md:text-xl">{name}</p>
                                 ))}
                             </div>
                         )}
                         {showBrideParents && (
                             <div>
-                                <p class="mb-2 text-champagne font-semibold">Padres de la novia</p>
+                                <p class="mb-2 text-champagne font-semibold text-lg md:text-2xl">Padres de la novia</p>
                                 {parents.bride.map((name) => (
-                                    <p class="drop-shadow">{name}</p>
+                                    <p class="drop-shadow text-md md:text-xl">{name}</p>
                                 ))}
                             </div>
                         )}

@@ -21,34 +21,32 @@ const hasMapsUrl = venue.mapsUrl !== 'PENDIENTE';
 ---
 
 <Section id="fecha-lugar" background="white">
-	<div class="grid gap-14 sm:grid-cols-2">
+	<div class="grid gap-14">
 		<div class="text-center sm:text-left">
-			<p class="font-label text-xs tracking-[0.3em] text-deep uppercase">Fecha</p>
+			<p class="font-label text-xl tracking-[0.3em] text-deep uppercase">Fecha</p>
 			<p class="mt-4 font-serif text-2xl text-ink">{weddingDateDisplay.weekday}</p>
-			<p class="font-serif text-4xl text-dusty sm:text-5xl">
-				{weddingDateDisplay.day} de {weddingDateDisplay.month}
-			</p>
-			<p class="font-serif text-xl text-ink">{weddingDateDisplay.year}</p>
+			<p class="font-serif text-4xl text-dusty sm:text-5xl">{weddingDateDisplay.day} de {weddingDateDisplay.month}</p>
+			<p class="font-serif text-2xl text-ink">{weddingDateDisplay.year}</p>
 			<Ornament class="my-6 sm:justify-start" />
-			<p class="font-label text-sm tracking-[0.2em] text-deep uppercase">
+			<p class="font-label text-xl tracking-[0.2em] text-deep uppercase">
 				{weddingDateDisplay.time} {weddingDateDisplay.timezone}
 			</p>
 		</div>
 
 		<div class="text-center sm:text-left">
-			<p class="font-label text-xs tracking-[0.3em] text-deep uppercase">Lugar</p>
-			<p class="mt-4 font-serif text-2xl text-ink">{venue.name}</p>
-			<p class="mt-2 font-label text-sm text-deep">{venue.addressLine}</p>
+			<p class="font-label text-xl tracking-[0.3em] text-deep uppercase">Lugar</p>
+			<p class="mt-4 font-serif text-4xl text-ink">{venue.name}</p>
+			<p class="mt-2 font-label text-xl text-deep">{venue.addressLine}</p>
 
 			<div class="mt-8 flex flex-col items-center gap-3 sm:items-start">
 				{
 					hasMapsUrl && (
-						<LinkButton href={venue.mapsUrl} external class="w-full sm:w-auto">
+						<LinkButton href={venue.mapsUrl} external>
 							Cómo llegar
 						</LinkButton>
 					)
 				}
-				<div class="flex flex-col gap-3 sm:flex-row">
+				<div class="flex flex-col gap-3">
 					<LinkButton href={googleCalendarUrl} external>Google Calendar</LinkButton>
 					<LinkButton href={icsHref} download={icsFilename}>Añadir al calendario</LinkButton>
 				</div>

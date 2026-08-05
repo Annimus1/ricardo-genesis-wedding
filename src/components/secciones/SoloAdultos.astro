@@ -4,7 +4,7 @@ import Ornament from '../Ornament.astro';
 import { adultsOnlyNote } from '../../data/wedding';
 ---
 
-<Section id="solo-adultos" class="relative overflow-hidden py-16">
+<Section id="solo-adultos" class="relative overflow-hidden py-16 min-h-screen flex flex-col justify-center items-center text-white">
     <!-- IMAGEN DE FONDO -->
     <div 
         class="absolute inset-0 bg-cover bg-center z-0" 
@@ -17,7 +17,7 @@ import { adultsOnlyNote } from '../../data/wedding';
     <!-- CONTENIDO (Texto y ornamentos por encima) -->
     <div class="relative z-20 text-white">
         <Ornament class="mb-8 brightness-0 invert" />
-        <p class="mx-auto max-w-[50ch] text-center font-serif text-lg text-white italic sm:text-xl drop-shadow-md">
+        <p class="mx-auto  text-center font-serif text-4xl text-white italic drop-shadow-md">
             {adultsOnlyNote}
         </p>
         <Ornament class="mt-8 brightness-0 invert" />
