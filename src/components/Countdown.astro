@@ -5,14 +5,14 @@ import { weddingDateISO } from '../data/wedding';
 
 <Section id="countdown" background="deep">
 	<div class="text-center p-0">
-		<p class="font-label text-xl tracking-[0.3em] text-white/90 uppercase p-0">Cuenta regresiva</p>
+		<p class="font-label text-xl tracking-[0.3em] text-white/90 p-0">Prepárate, Solo falta:</p>
 
 		<div
 			id="countdown-root"
 			class="mt-6 flex flex-wrap justify-center gap-x-4"
 			data-wedding-date={weddingDateISO}
 		>
-			<div class="flex flex-col items-center" aria-hidden="true">
+			<div class="flex flex-col items-center">
 				<span class="font-label text-4xl font-light text-white sm:text-6xl" data-unit="months" aria-live="polite">--</span>
 				<span class="mt-2 font-label text-xs tracking-[0.2em] text-white/90 uppercase">Meses</span>
 			</div>
