@@ -9,6 +9,7 @@ if (root) {
   const doneEl = document.getElementById('countdown-done');
 
   const unitEls = {
+    months: root.querySelector<HTMLElement>('[data-unit="months"]'),
     days: root.querySelector<HTMLElement>('[data-unit="days"]'),
     hours: root.querySelector<HTMLElement>('[data-unit="hours"]'),
     minutes: root.querySelector<HTMLElement>('[data-unit="minutes"]'),
@@ -19,6 +20,8 @@ if (root) {
 
   const tick = () => {
     const diff = target - Date.now();
+    const targetDate = new Date(target);
+    const nowDate = new Date(Date.now());
 
     if (diff <= 0) {
       root.hidden = true;
@@ -27,11 +30,13 @@ if (root) {
       return;
     }
 
-    const days = Math.floor(diff / 86_400_000);
-    const hours = Math.floor((diff % 86_400_000) / 3_600_000);
-    const minutes = Math.floor((diff % 3_600_000) / 60_000);
-    const seconds = Math.floor((diff % 60_000) / 1000);
+    const months = targetDate.getUTCMonth() - nowDate.getUTCMonth();
+    const days = targetDate.getUTCDate() - nowDate.getUTCDate();
+    const hours = targetDate.getUTCHours() - nowDate.getUTCHours();
+    const minutes = 60 - nowDate.getUTCMinutes();
+    const seconds = 60 - nowDate.getUTCSeconds();
 
+    if (unitEls.months) unitEls.months.textContent = String(months);
     if (unitEls.days) unitEls.days.textContent = String(days);
     if (unitEls.hours) unitEls.hours.textContent = pad(hours);
     if (unitEls.minutes) unitEls.minutes.textContent = pad(minutes);
