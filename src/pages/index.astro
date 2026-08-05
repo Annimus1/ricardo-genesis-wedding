@@ -7,17 +7,18 @@ import FechaLugar from '../components/secciones/FechaLugar.astro';
 import Programa from '../components/secciones/Programa.astro';
 import DressCode from '../components/secciones/DressCode.astro';
 import SoloAdultos from '../components/secciones/SoloAdultos.astro';
-import Aportes from '../components/secciones/Aportes.astro';
 import RSVP from '../components/secciones/RSVP.astro';
 import Footer from '../components/secciones/Footer.astro';
 import FloatingRsvp from '../components/FloatingRsvp.astro';
 import { couple, weddingDateDisplay } from '../data/wedding';
+import Music_Player from '../components/Music_Player.astro';
 
 const title = `${couple.groomFirstName} & ${couple.brideFirstName} · ${weddingDateDisplay.day} ${weddingDateDisplay.month} ${weddingDateDisplay.year}`;
 const description = `Acompáñanos a celebrar la boda de ${couple.groom} y ${couple.bride} el ${weddingDateDisplay.day} de ${weddingDateDisplay.month} de ${weddingDateDisplay.year}.`;
 ---
 
 <Base title={title} description={description}>
+	<Music_Player />
 	<Hero />
 	<InvitacionFormal />
 	<Countdown />
@@ -25,7 +26,6 @@ const description = `Acompáñanos a celebrar la boda de ${couple.groom} y ${cou
 	<Programa />
 	<DressCode />
 	<SoloAdultos />
-	<Aportes />
 	<RSVP />
 	<Footer />
 	<FloatingRsvp />
