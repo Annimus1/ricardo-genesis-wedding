@@ -39,10 +39,10 @@ export const weddingDateDisplay = {
 };
 
 export const venue = {
-  name: 'Hotel Eurobuilding', // ej. "Hacienda Los Almendros"
-  addressLine: 'Calle Suiza, Ave Piedemonte', // ej. "Calle Principal 123, Ciudad"
+  name: 'Grato jardín',
+  addressLine: 'Av. San Silvestre',
   city: 'Barinas',
-  mapsUrl: 'https://maps.app.goo.gl/uRRo2SgqxuVz5tne8', // URL completa de Google Maps al lugar
+  mapsUrl: 'https://maps.app.goo.gl/ZHxaoDKPV9Jt923s6?g_st=ic',
 };
 
 export const dressCode = {
