@@ -14,8 +14,8 @@ export const couple = {
 
 /** Opcional: dejar los arreglos vacíos si no se desea mostrar a los padres en la invitación. */
 export const parents = {
-  groom: [] as string[], // ej. ['Juan Márquez', 'María Pérez de Márquez']
-  bride: [] as string[],
+  groom: ['Jose marquez', 'Maria zambrano'] as string[], // ej. ['Juan Márquez', 'María Pérez de Márquez']
+  bride: ['Juan Márquez', 'María Pérez de Márquez'] as string[],
 };
 
 /**
@@ -95,7 +95,7 @@ export const bankAccounts: BankAccount[] = [
 ];
 
 export const rsvp = {
-  deadlineDisplay: 'PENDIENTE', // ej. "15 de octubre de 2026"
+  deadlineDisplay: '08 de Noviembre de 2026', // ej. "15 de octubre de 2026"
   whatsappPhone: '584245937048', // formato internacional sin signos, ej. "584121234567"
   message:
     'Hola! Confirmo mi asistencia a la boda de Ricardo y Genesis. Somos [nombre / número de personas]: ',
